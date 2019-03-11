@@ -15,8 +15,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     deploy:
-      placement:
-        constraints: [node.labels.type == webgateway]
       labels:
         - traefik.frontend.rule=Host:proxy.awsl.me
         - traefik.port=8080

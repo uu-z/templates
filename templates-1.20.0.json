@@ -823,7 +823,7 @@
     "note": "Traefik",
     "categories": ["API"],
     "platform": "linux",
-    "logo": "https://github.com/containous/traefik/raw/master/docs/content/assets/img/traefik.icon.png",
+    "logo": "https://github.com/containous/traefik/raw/master/docs/content/assets/img/traefik.logo.png",
     "repository": {
       "url": "https://github.com/uu-z/templates",
       "stackfile": "stacks/traefik/docker-stack.yml"
