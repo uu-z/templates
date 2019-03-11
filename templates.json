@@ -753,12 +753,6 @@
     "repository": {
       "url": "https://github.com/uu-z/templates",
       "stackfile": "stacks/hasura/docker-stack.yml"
-    },
-    "env": [
-      {
-        "name": "HASURA_PORT",
-        "label": "hasura port"
-      }
-    ]
+    }
   }
 ]
