@@ -1,0 +1,26 @@
+version: "3.6"
+services:
+  proxy:
+    image: traefik
+    command: -c /dev/null
+      --web
+      --docker
+      --docker.swarmmode
+      --docker.watch
+    #      --logLevel=DEBUG
+    networks:
+      - traefik
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.labels.type == webgateway]
+      labels:
+        - traefik.frontend.rule=Host:proxy.awsl.me
+        - traefik.port=8080
+        - traefik.docker.network=traefik
+networks:
+  traefik:
+    external: true

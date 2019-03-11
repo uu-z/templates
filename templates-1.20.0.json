@@ -802,7 +802,7 @@
     "title": "shadowsocks",
     "description": "shadowsocks",
     "note": "shadowsocks.",
-    "categories": ["vpn"],
+    "categories": ["VPN"],
     "platform": "linux",
     "logo": "https://camo.githubusercontent.com/4de0ad30df609703b324860ff6a201cbacbd3ed4/68747470733a2f2f7261772e6769746875622e636f6d2f736861646f77736f636b732f736861646f77736f636b732d694f532f6d61737465722f696f735f3132382e706e67",
     "repository": {
@@ -812,8 +812,21 @@
     "env": [
       {
         "name": "PASSWORD",
-        "label": "shadowsocks password"
+        "label": "password"
       }
     ]
+  },
+  {
+    "type": 2,
+    "title": "Traefik",
+    "description": "Traefik",
+    "note": "Traefik",
+    "categories": ["API"],
+    "platform": "linux",
+    "logo": "https://github.com/containous/traefik/raw/master/docs/content/assets/img/traefik.icon.png",
+    "repository": {
+      "url": "https://github.com/uu-z/templates",
+      "stackfile": "stacks/traefik/docker-stack.yml"
+    }
   }
 ]
