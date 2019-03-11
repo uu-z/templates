@@ -1,0 +1,13 @@
+version: "3.6"
+
+services:
+  ss:
+    image: shadowsocks/shadowsocks-libev
+    ports:
+      - "2333:2333/tcp"
+      - "2333:2333/udp"
+    environment:
+      - SERVER_PORT=2333
+      - METHOD=aes-256-cfb
+      - PASSWORD=${PASSWORD}
+    restart: always
