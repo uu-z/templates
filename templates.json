@@ -744,7 +744,7 @@
   },
   {
     "type": "stack",
-    "title": "Hasura template",
+    "title": "Hasura",
     "description": "Hasura init starter",
     "note": "Hasura template",
     "categories": ["database"],
