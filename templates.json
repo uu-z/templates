@@ -7,9 +7,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png",
     "image": "registry:latest",
-    "ports": [
-      "5000/tcp"
-    ],
+    "ports": ["5000/tcp"],
     "volumes": ["/var/lib/registry"]
   },
   {
@@ -20,10 +18,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/nginx.png",
     "image": "nginx:latest",
-    "ports": [
-      "80/tcp",
-      "443/tcp"
-    ],
+    "ports": ["80/tcp", "443/tcp"],
     "volumes": ["/etc/nginx", "/usr/share/nginx/html"]
   },
   {
@@ -34,9 +29,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/httpd.png",
     "image": "httpd:latest",
-    "ports": [
-      "80/tcp"
-    ],
+    "ports": ["80/tcp"],
     "volumes": ["/usr/local/apache2/htdocs/"]
   },
   {
@@ -47,9 +40,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/caddy.png",
     "image": "abiosoft/caddy:latest",
-    "ports": [
-      "80/tcp", "443/tcp", "2015/tcp"
-    ],
+    "ports": ["80/tcp", "443/tcp", "2015/tcp"],
     "volumes": ["/root/.caddy"]
   },
   {
@@ -66,9 +57,7 @@
         "label": "Root password"
       }
     ],
-    "ports": [
-      "3306/tcp"
-    ],
+    "ports": ["3306/tcp"],
     "volumes": ["/var/lib/mysql"]
   },
   {
@@ -85,9 +74,7 @@
         "label": "Root password"
       }
     ],
-    "ports": [
-      "3306/tcp"
-    ],
+    "ports": ["3306/tcp"],
     "volumes": ["/var/lib/mysql"]
   },
   {
@@ -108,9 +95,7 @@
         "label": "Superuser password"
       }
     ],
-    "ports": [
-      "5432/tcp"
-    ],
+    "ports": ["5432/tcp"],
     "volumes": ["/var/lib/postgresql/data"]
   },
   {
@@ -121,9 +106,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mongo.png",
     "image": "mongo:latest",
-    "ports": [
-      "27017/tcp"
-    ],
+    "ports": ["27017/tcp"],
     "volumes": ["/data/db"]
   },
   {
@@ -134,10 +117,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cockroachdb.png",
     "image": "cockroachdb/cockroach:latest",
-    "ports": [
-      "26257/tcp",
-      "8080/tcp"
-    ],
+    "ports": ["26257/tcp", "8080/tcp"],
     "volumes": ["/cockroach/cockroach-data"],
     "command": "start --insecure"
   },
@@ -149,10 +129,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cratedb.png",
     "image": "crate:latest",
-    "ports": [
-      "4200/tcp",
-      "4300/tcp"
-    ],
+    "ports": ["4200/tcp", "4300/tcp"],
     "volumes": ["/data"]
   },
   {
@@ -163,10 +140,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/elasticsearch.png",
     "image": "elasticsearch:latest",
-    "ports": [
-      "9200/tcp",
-      "9300/tcp"
-    ],
+    "ports": ["9200/tcp", "9300/tcp"],
     "volumes": ["/usr/share/elasticsearch/data"]
   },
   {
@@ -178,16 +152,8 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
     "image": "gitlab/gitlab-ce:latest",
-    "ports": [
-      "80/tcp",
-      "443/tcp",
-      "22/tcp"
-    ],
-    "volumes": [
-      { "container": "/etc/gitlab" },
-      { "container": "/var/log/gitlab" },
-      { "container": "/var/opt/gitlab" }
-    ]
+    "ports": ["80/tcp", "443/tcp", "22/tcp"],
+    "volumes": [{ "container": "/etc/gitlab" }, { "container": "/var/log/gitlab" }, { "container": "/var/opt/gitlab" }]
   },
   {
     "type": "container",
@@ -197,9 +163,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/minio.png",
     "image": "minio/minio:latest",
-    "ports": [
-      "9000/tcp"
-    ],
+    "ports": ["9000/tcp"],
     "env": [
       {
         "name": "MINIO_ACCESS_KEY",
@@ -221,9 +185,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/scality-s3.png",
     "image": "scality/s3server",
-    "ports": [
-      "8000/tcp"
-    ],
+    "ports": ["8000/tcp"],
     "env": [
       {
         "name": "SCALITY_ACCESS_KEY",
@@ -245,9 +207,7 @@
     "note": "Password needs to include at least 8 characters including uppercase, lowercase letters, base-10 digits and/or non-alphanumeric symbols.",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/microsoft.png",
     "image": "microsoft/mssql-server-linux:2017-GA",
-    "ports": [
-      "1433/tcp"
-    ],
+    "ports": ["1433/tcp"],
     "env": [
       {
         "name": "ACCEPT_EULA",
@@ -268,9 +228,7 @@
     "note": "Password needs to include at least 8 characters including uppercase, lowercase letters, base-10 digits and/or non-alphanumeric symbols.",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/microsoft.png",
     "image": "microsoft/mssql-server-windows-developer:latest",
-    "ports": [
-      "1433/tcp"
-    ],
+    "ports": ["1433/tcp"],
     "env": [
       {
         "name": "ACCEPT_EULA",
@@ -292,9 +250,7 @@
     "note": "Password needs to include at least 8 characters including uppercase, lowercase letters, base-10 digits and/or non-alphanumeric symbols.",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/microsoft.png",
     "image": "microsoft/mssql-server-windows-express:latest",
-    "ports": [
-      "1433/tcp"
-    ],
+    "ports": ["1433/tcp"],
     "env": [
       {
         "name": "ACCEPT_EULA",
@@ -315,9 +271,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
     "image": "iron/functions:latest",
-    "ports": [
-      "8080/tcp"
-    ],
+    "ports": ["8080/tcp"],
     "volumes": ["/app/data"],
     "privileged": true
   },
@@ -329,9 +283,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
     "image": "iron/functions-ui:latest",
-    "ports": [
-      "4000/tcp"
-    ],
+    "ports": ["4000/tcp"],
     "volumes": ["/app/data"],
     "env": [
       {
@@ -349,9 +301,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/solr.png",
     "image": "solr:latest",
-    "ports": [
-      "8983/tcp"
-    ],
+    "ports": ["8983/tcp"],
     "volumes": ["/opt/solr/mydata"]
   },
   {
@@ -362,9 +312,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redis.png",
     "image": "redis:latest",
-    "ports": [
-      "6379/tcp"
-    ],
+    "ports": ["6379/tcp"],
     "volumes": ["/data"]
   },
   {
@@ -375,10 +323,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
     "image": "rabbitmq:latest",
-    "ports": [
-      "5671/tcp",
-      "5672/tcp"
-    ],
+    "ports": ["5671/tcp", "5672/tcp"],
     "volumes": ["/var/lib/rabbitmq"]
   },
   {
@@ -390,9 +335,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ghost.png",
     "image": "ghost:latest",
-    "ports": [
-      "2368/tcp"
-    ],
+    "ports": ["2368/tcp"],
     "volumes": ["/var/lib/ghost/content"]
   },
   {
@@ -404,9 +347,7 @@
     "note": "Default credentials: admin / changeme",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plesk.png",
     "image": "plesk/plesk:preview",
-    "ports": [
-      "21/tcp", "80/tcp", "443/tcp", "8880/tcp", "8443/tcp", "8447/tcp"
-    ]
+    "ports": ["21/tcp", "80/tcp", "443/tcp", "8880/tcp", "8443/tcp", "8447/tcp"]
   },
   {
     "type": "container",
@@ -427,9 +368,7 @@
         "label": "Database password"
       }
     ],
-    "ports": [
-      "80/tcp"
-    ],
+    "ports": ["80/tcp"],
     "volumes": ["/var/www/html"]
   },
   {
@@ -451,9 +390,7 @@
         "label": "Database password"
       }
     ],
-    "ports": [
-      "80/tcp"
-    ],
+    "ports": ["80/tcp"],
     "volumes": ["/var/www/html"]
   },
   {
@@ -464,9 +401,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/drupal.png",
     "image": "drupal:latest",
-    "ports": [
-      "80/tcp"
-    ],
+    "ports": ["80/tcp"],
     "volumes": ["/var/www/html"]
   },
   {
@@ -477,9 +412,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plone.png",
     "image": "plone:latest",
-    "ports": [
-      "8080/tcp"
-    ],
+    "ports": ["8080/tcp"],
     "volumes": ["/data"]
   },
   {
@@ -490,11 +423,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/magento.png",
     "image": "alankent/gsd:latest",
-    "ports": [
-      "80/tcp",
-      "3000/tcp",
-      "3001/tcp"
-    ],
+    "ports": ["80/tcp", "3000/tcp", "3001/tcp"],
     "volumes": ["/var/www/html/"]
   },
   {
@@ -543,9 +472,7 @@
         "label": "Database password"
       }
     ],
-    "ports": [
-      "80/tcp"
-    ],
+    "ports": ["80/tcp"],
     "volumes": ["/var/www/html"]
   },
   {
@@ -567,12 +494,7 @@
         "label": "License key"
       }
     ],
-    "ports": [
-      "1935/tcp",
-      "8086/tcp",
-      "8087/tcp",
-      "8088/tcp"
-    ],
+    "ports": ["1935/tcp", "8086/tcp", "8087/tcp", "8088/tcp"],
     "volumes": ["/var/lib/wowza"]
   },
   {
@@ -583,10 +505,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/jenkins.png",
     "image": "jenkins/jenkins:lts",
-    "ports": [
-      "8080/tcp",
-      "50000/tcp"
-    ],
+    "ports": ["8080/tcp", "50000/tcp"],
     "env": [
       {
         "name": "JENKINS_OPTS",
@@ -603,9 +522,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redmine.png",
     "image": "redmine:latest",
-    "ports": [
-      "3000/tcp"
-    ],
+    "ports": ["3000/tcp"],
     "volumes": ["/usr/src/redmine/files"]
   },
   {
@@ -631,9 +548,7 @@
         "label": "Database password"
       }
     ],
-    "ports": [
-      "8069/tcp"
-    ],
+    "ports": ["8069/tcp"],
     "volumes": ["/var/lib/odoo", "/mnt/extra-addons"]
   },
   {
@@ -645,9 +560,7 @@
     "note": "This application web interface is exposed on the port 55414 inside the container.",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/urbackup.png",
     "image": "cfstras/urbackup",
-    "ports": [
-      "55413/tcp", "55414/tcp", "55415/tcp", "35622/tcp"
-    ],
+    "ports": ["55413/tcp", "55414/tcp", "55415/tcp", "35622/tcp"],
     "volumes": ["/var/urbackup"]
   },
   {
@@ -659,9 +572,7 @@
     "platform": "linux",
     "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/filebrowser.png",
     "image": "hacdias/filemanager:latest",
-    "ports": [
-      "80/tcp"
-    ],
+    "ports": ["80/tcp"],
     "volumes": ["/data", "/srv"],
     "command": "--port 80 --database /data/database.db --scope /srv"
   },
@@ -679,9 +590,7 @@
         "set": "lucee@4.5"
       }
     ],
-    "ports": [
-      "8080/tcp", "8443/tcp"
-    ]
+    "ports": ["8080/tcp", "8443/tcp"]
   },
   {
     "type": "container",
@@ -705,9 +614,7 @@
         "set": "lucee@4.5"
       }
     ],
-    "ports": [
-      "8080/tcp", "8443/tcp"
-    ],
+    "ports": ["8080/tcp", "8443/tcp"],
     "volumes": ["/data/contentbox/db", "/app/includes/shared/media"]
   },
   {
@@ -834,5 +741,18 @@
         "bind": "/var/run/docker.sock"
       }
     ]
+  },
+  {
+    "type": "stack",
+    "title": "Hasura template",
+    "description": "Hasura init starter",
+    "note": "Hasura template",
+    "categories": ["database"],
+    "platform": "linux",
+    "logo": "https://github.com/hasura/graphql-engine/raw/master/assets/brand/powered_by_hasura_black.svg?sanitize=true",
+    "repository": {
+      "url": "https://github.com/uu-z/templates",
+      "stackfile": "stacks/hasura/docker-stack.yml"
+    }
   }
 ]
