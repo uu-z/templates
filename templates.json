@@ -746,6 +746,7 @@
     "type": "stack",
     "title": "Hasura",
     "description": "Hasura init starter",
+    "note": "Hasura",
     "categories": ["database"],
     "platform": "linux",
     "logo": "https://github.com/hasura/graphql-engine/raw/master/assets/brand/powered_by_hasura_black.svg?sanitize=true",
