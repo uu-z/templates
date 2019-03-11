@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  whoami:
+    image: emilevauge/whoami
+    networks:
+      - traefik
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.port=80"
+        - "traefik.docker.network=traefik"
+        - "traefik.frontend.rule=Host: test.awsl.me"
+
+networks:
+  traefik:
+    external: true
