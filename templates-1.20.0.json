@@ -798,7 +798,7 @@
     }
   },
   {
-    "type": 1,
+    "type": 2,
     "title": "shadowsocks",
     "description": "shadowsocks",
     "note": "shadowsocks.",
@@ -830,7 +830,7 @@
     }
   },
   {
-    "type": 1,
+    "type": 2,
     "title": "whoami",
     "description": "whoami",
     "note": "whoami",
