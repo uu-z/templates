@@ -828,5 +828,18 @@
       "url": "https://github.com/uu-z/templates",
       "stackfile": "stacks/traefik/docker-stack.yml"
     }
+  },
+  {
+    "type": 2,
+    "title": "whoami",
+    "description": "whoami",
+    "note": "whoami",
+    "categories": ["test"],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
+    "repository": {
+      "url": "https://github.com/uu-z/templates",
+      "stackfile": "stacks/whoami/docker-stack.yml"
+    }
   }
 ]
