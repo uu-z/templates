@@ -1,24 +1,46 @@
 version: "3.6"
+
 services:
-  proxy:
+  web:
     image: traefik
-    command: -c /dev/null
-      --web
-      --docker
-      --docker.swarmmode
-      --docker.watch
-    #      --logLevel=DEBUG
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
     networks:
       - traefik
-    ports:
-      - 80:80
+    command: >
+      - "storeconfig"
+      - "--api"
+      - "--entrypoints=Name:http Address::80 Redirect.EntryPoint:https"
+      - "--entrypoints=Name:https Address::443 TLS"
+      - "--defaultentrypoints=http,https"
+      - "--acme"
+      - "--acme.storage=/traefik-certs"
+      - "--acme.entryPoint=https"
+      - "--acme.httpChallenge.entryPoint=http"
+      - "--acme.onHostRule=true"
+      - "--acme.onDemand=false"
+      - "--acme.email=qkuts@qkuts.com"
+      - "--docker"
+      - "--docker.swarmMode"
+      - "--docker.domain=go.qkuts.com"
+      - "--docker.watch"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /dev/null:/traefik.toml
+      - traefik-certs:/acme
     deploy:
+      restart_policy:
+       condition: on-failure
       labels:
-        - traefik.frontend.rule=Host:proxy.awsl.me
-        - traefik.port=8080
-        - traefik.docker.network=traefik
+        - "traefik.port=8080"
+        - "traefik.docker.network=traefik"
+        - "traefik.frontend.rule=Host: awsl.com"
+     
 networks:
   traefik:
     external: true
+
+volumes:
+  traefik-certs:
