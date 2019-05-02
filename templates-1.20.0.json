@@ -841,5 +841,72 @@
       "url": "https://github.com/uu-z/templates",
       "stackfile": "stacks/whoami/docker-stack.yml"
     }
+  },
+  {
+    "type": 2,
+    "title": "rem",
+    "description": "rem",
+    "note": "rem",
+    "categories": ["project"],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
+    "repository": {
+      "url": "https://github.com/uu-z/templates",
+      "stackfile": "stacks/rem/docker-stack.yml"
+    },
+    "env": [
+      {
+        "name": "HASURA_DEV_ENDPOINT",
+        "label": "HASURA_DEV_ENDPOINT"
+      },
+      {
+        "name": "PG_HOST",
+        "label": "PG_HOST"
+      },
+      {
+        "name": "PG_PORT",
+        "label": "PG_PORT",
+        "set": "5432"
+      },
+      {
+        "name": "ROOT_URL",
+        "label": "ROOT_URL"
+      },
+      {
+        "name": "WEIXIN_APPID",
+        "label": "WEIXIN_APPID"
+      },
+      {
+        "name": "WEIXIN_SECRET",
+        "label": "WEIXIN_SECRET"
+      },
+      {
+        "name": "WEIXIN_MCHID",
+        "label": "WEIXIN_MCHID"
+      },
+      {
+        "name": "WEIXIN_KEY",
+        "label": "WEIXIN_KEY"
+      },
+      {
+        "name": "POSTGRES_USER",
+        "label": "POSTGRES_USER",
+        "set": "postgres"
+      },
+      {
+        "name": "POSTGRES_PASSWORD",
+        "label": "POSTGRES_PASSWORD",
+        "set": "postgres"
+      },
+      {
+        "name": "UPLOAD_AUTH_ENABLE",
+        "label": "UPLOAD_AUTH_ENABLE",
+        "set": "false"
+      },
+      {
+        "name": "YUNPIAN_KEY",
+        "label": "YUNPIAN_KEY"
+      }
+    ]
   }
 ]

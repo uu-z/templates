@@ -1,0 +1,100 @@
+aversion: '3.6'
+services:
+  admin:
+    image: codeispoetry/rem-go-admin
+    networks:
+      - traefik
+    deploy:
+      replicas: 2
+      labels:
+        - "traefik.port=80"
+        - "traefik.docker.network=traefik"
+        - "traefik.frontend.rule=Host:admin.go.qkuts.com"
+  shop:
+    image: codeispoetry/rem-go-shop
+    networks:
+      - traefik
+    deploy:
+      replicas: 2
+      labels:
+        - "traefik.port=80"
+        - "traefik.docker.network=traefik"
+        - "traefik.frontend.rule=Host:go.qkuts.com"
+  cron-job:
+    image: codeispoetry/rem-go-server
+    environment:
+      PG_HOST: ${PG_HOST}
+      WEIXIN_APPID: ${WEIXIN_APPID}
+      WEIXIN_SECRET: ${WEIXIN_SECRET}
+      WEIXIN_MCHID: ${WEIXIN_MCHID} 
+      WEIXIN_KEY: ${WEIXIN_KEY}
+      ROOT_URL: ${ROOT_URL}
+      NODE_ENV: prod
+      ENABLE_HASURA_SCHEMA: "true"
+      HASURA_DEV_ENDPOINT: ${HASURA_DEV_ENDPOINT}
+    command: ["npm", "run", "cron"]
+  server:
+    image: codeispoetry/rem-go-server
+    networks:
+      - traefik
+    environment:
+      UPLOAD_AUTH_ENABLE: ${UPLOAD_AUTH_ENABLE}
+      PG_HOST: ${PG_HOST}
+      WEIXIN_APPID: ${WEIXIN_APPID}
+      WEIXIN_SECRET: ${WEIXIN_SECRET}
+      WEIXIN_MCHID: ${WEIXIN_MCHID} 
+      YUNPIAN_KEY: ${YUNPIAN_KEY}
+      WEIXIN_KEY: ${WEIXIN_KEY}
+      ROOT_URL: ${ROOT_URL}
+      HASURA_DEV_ENDPOINT: ${HASURA_DEV_ENDPOINT}
+      NODE_ENV: prod
+    volumes:
+       - server_datas:/app/datas
+    depends_on:
+    - "postgres"
+    - "graphql-engine"
+    deploy:
+      replicas: 2
+      labels:
+        - "traefik.port=4000"
+        - "traefik.docker.network=traefik"
+        - "traefik.frontend.rule=Host: api.qkuts.com"
+  postgres:
+    image: mdillon/postgis
+    networks:
+      - traefik
+    restart: always
+    ports:
+    - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+    - db_data:/var/lib/postgresql/data
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0-alpha44
+    networks:
+      - traefik
+    ports:
+    - "8002:8080"
+    depends_on:
+    - "postgres"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      ## uncomment next line to set an admin secret
+      ## HASURA_GRAPHQL_ADMIN_SECRET: awsl
+    deploy:
+      replicas: 2
+      labels:
+        - "traefik.port=8080"
+        - "traefik.docker.network=traefik"
+        - "traefik.frontend.rule=Host: hasura.api.qkuts.com"
+volumes:
+  db_data:
+  server_datas:
+
+networks:
+  traefik:
+    external: true
