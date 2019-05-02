@@ -65,7 +65,7 @@ services:
       - traefik
     restart: always
     ports:
-    - "5432:5432"
+    - "${PG_PORT}:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -75,8 +75,6 @@ services:
     image: hasura/graphql-engine:v1.0.0-alpha44
     networks:
       - traefik
-    ports:
-    - "8002:8080"
     depends_on:
     - "postgres"
     restart: always
