@@ -1,4 +1,4 @@
-aversion: '3.6'
+version: '3.6'
 services:
   admin:
     image: codeispoetry/rem-go-admin
@@ -7,9 +7,9 @@ services:
     deploy:
       replicas: 2
       labels:
-        - "traefik.port=80"
-        - "traefik.docker.network=traefik"
-        - "traefik.frontend.rule=Host:admin.go.qkuts.com"
+        - traefik.port=80
+        - traefik.docker.network=traefik
+        - traefik.frontend.rule=Host:admin.go.qkuts.com
   shop:
     image: codeispoetry/rem-go-shop
     networks:
